@@ -1,0 +1,3 @@
+[deploy_config]
+salt = "ethers phoenix"
+chains = ["op_chain_a","op_chain_b"]

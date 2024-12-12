@@ -1,0 +1,31 @@
+{
+  "name": "superfuse-contracts-examples",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "deployments",
+    "src",
+    "script"
+  ],
+  "scripts": {
+    "dev": "mprocs",
+    "init:env": "cp .env.example .env",
+    "deploy:dev": "env-cmd -f .env cross-env-shell 'wait-port http://:8420/ready && forge script script/Counter.s.sol --broadcast --private-key $DEPLOYER_PRIVATE_KEY'",
+    "prepare": "rm -rf lib/ && set-defaults .vscode && forge install --no-git foundry-rs/forge-std@v1.9.1 ethereum-optimism/optimism@v1.10.0  || echo ''",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "set-defaults": "^0.0.2",
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "mprocs": "^0.7.1",
+    "nx": "^20.0.7",
+    "supersim": "^0.0.5",
+    "wait-port": "^1.1.0"
+  },
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35"
+}
