@@ -10,6 +10,8 @@
   ],
   "scripts": {
     "dev": "mprocs",
+    "build": "forge build",
+    "clean": "rm -rf cache out",
     "init:env": "cp .env.example .env",
     "deploy:dev": "env-cmd -f .env cross-env-shell 'wait-port http://:8420/ready && forge script script/Counter.s.sol --broadcast --private-key $DEPLOYER_PRIVATE_KEY'",
     "prepare": "rm -rf lib/ && set-defaults .vscode && forge install --no-git foundry-rs/forge-std@v1.9.1 ethereum-optimism/optimism@v1.10.0  || echo ''",
