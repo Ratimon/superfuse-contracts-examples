@@ -9,6 +9,7 @@ These are illustrated by modifying their smart contracts components using our [`
 - [How It Works](#how-it-works)
 - [Installation](#installation)
 - [Quickstart](#quickstart)
+- [Contributing](#contributing)
 - [Acknowledgement](#acknowledgement)
 
 
@@ -83,6 +84,24 @@ This command will:
 
 - Start the `supersim` local development environment
 - Deploy the smart contracts to the two test networks
+
+
+## Contributing
+
+Adding `remappings.txt` with following line:
+
+```txt
+
+@superfuse-core/=src/
+@superfuse-test/=test/
+@superfuse-deploy/=script/
+
+@solady-v0.0.158/=lib/solady-v0.0.158/src/
+@solady-v0.0.245/=lib/solady-v0.0.245/src/
+
+@openzeppelin-v0.4.7.3/=lib/openzeppelin-v0.4.7.3/contracts/
+@openzeppelin-v0.5.0.2/=lib/openzeppelin-v0.5.0.2/contracts/
+```
 
 
 ## Acknowledgement
