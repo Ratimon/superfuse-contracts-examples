@@ -10,11 +10,12 @@ import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 
 // Target contract
 import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
-import {IERC7802} from "@superfuse-core/interfaces/IERC7802.sol";
-import {ISuperchainERC20} from "@superfuse-core/interfaces/ISuperchainERC20.sol";
+import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";
+import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.sol";
 import {L2NativeSuperchainERC20} from "@superfuse-core/L2NativeSuperchainERC20.sol";
 
 // to do: import deploy script
+
 
 
 /// @title SuperchainERC20Test

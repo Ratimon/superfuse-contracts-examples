@@ -1,6 +1,7 @@
 @superfuse-core/=src/
 @superfuse-test/=test/
 @superfuse-deploy/=script/
+@script/=script/
 
 @forge-std-v1.9.1/=lib/forge-std-v1.9.1/src/
 
