@@ -9,9 +9,6 @@ import {Predeploys} from "@superfuse-core/libraries/Predeploys.sol";
 import {Config} from "@superfuse-deploy/deployer/Config.sol";
 import {ForgeArtifacts} from "@superfuse-deploy/deployer/ForgeArtifacts.sol";
 
-import { DeployConfig } from "@superfuse-deploy/deployer/DeployConfig.s.sol";
-// import { Types } from "@superfuse-deploy/optimism/Types.sol";
-
 
 /// @notice represent a deployment
 struct Deployment {
@@ -84,8 +81,6 @@ contract GlobalDeployer is IDeployer {
     // --------------------------------------------------------------------------------------------
     Vm constant vm = Vm(address(bytes20(uint160(uint256(keccak256("hevm cheat code"))))));
 
-    DeployConfig public constant cfg =
-        DeployConfig(address(uint160(uint256(keccak256(abi.encode("superfuse.deployconfig"))))));
 
     error DeploymentDoesNotExist(string);
     /// @notice Error for when trying to save an invalid deployment
@@ -110,12 +105,6 @@ contract GlobalDeployer is IDeployer {
     /// but if the DEPLOYMENT_CONTEXT env variable is set, the context take that value
     /// The context allow you to organise deployments in a set as well as make specific configurations
     function init() external {
-
-        vm.etch(address(cfg), vm.getDeployedCode("DeployConfig.s.sol:DeployConfig"));
-        vm.label(address(cfg), "DeployConfig");
-        vm.allowCheatcodes(address(cfg));
-        cfg.read(Config.deployConfigPath());
-
 
         // needed as we etch the deployed code and so the initialization in the declaration above is not taken in consideration
         _autoBroadcast = true;
@@ -150,10 +139,6 @@ contract GlobalDeployer is IDeployer {
     // --------------------------------------------------------------------------------------------
     // Public Interface
     // --------------------------------------------------------------------------------------------
-
-    function getConfig() external pure returns (DeployConfig) {
-        return cfg;
-    }
 
     function autoBroadcasting() external view returns (bool) {
         return _autoBroadcast;

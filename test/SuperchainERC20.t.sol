@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.25;
 
+import {console} from "@forge-std-v1.9.1/console.sol";
+
 // Testing utilities
 import {Test} from "@forge-std-v1.9.1/Test.sol";
 
@@ -15,12 +17,21 @@ import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.s
 import {L2NativeSuperchainERC20} from "@superfuse-core/L2NativeSuperchainERC20.sol";
 
 // to do: import deploy script
-
+import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
+import {DeployL2NativeSuperchainERC20Script} from "@script/DeployL2NativeSuperchainERC20Script.s.sol";
 
 
 /// @title SuperchainERC20Test
 /// @notice Contract for testing the SuperchainERC20 contract.
 contract SuperchainERC20Test is Test {
+
+    string mnemonic = vm.envString("MNEMONIC");
+    uint256 ownerPrivateKey = vm.deriveKey(mnemonic, "m/44'/60'/0'/0/", 1); //  address = 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+    address owner = vm.envOr("DEPLOYER", vm.addr(ownerPrivateKey));
+
+    IDeployer deployerProcedue;
+
+
     address internal constant ZERO_ADDRESS = address(0);
     address internal constant SUPERCHAIN_TOKEN_BRIDGE = Predeploys.SUPERCHAIN_TOKEN_BRIDGE;
     address internal constant MESSENGER = Predeploys.L2_TO_L2_CROSS_DOMAIN_MESSENGER;
@@ -30,9 +41,15 @@ contract SuperchainERC20Test is Test {
     /// @notice Sets up the test suite.
     function setUp() public {
 
+        deployerProcedue = getDeployer();
+        deployerProcedue.setAutoBroadcast(false);
 
-        superchainERC20 = new L2NativeSuperchainERC20(address(this), "Test", "TEST", 18);
+        console.log("Setup Superchain ERC20 ... ");
 
+        DeployL2NativeSuperchainERC20Script superchainERC20Deployments = new DeployL2NativeSuperchainERC20Script();
+        superchainERC20 = superchainERC20Deployments.deploy();
+
+        deployerProcedue.deactivatePrank();
 
     }
 

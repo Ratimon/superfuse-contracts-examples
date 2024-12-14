@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {IDeployer, Vm} from "@superfuse-deplo/deployer/Deployer.sol";
+import {IDeployer, Vm} from "@superfuse-deploy/deployer/Deployer.sol";
 
 struct DeployOptions {
     bytes32 salt;
