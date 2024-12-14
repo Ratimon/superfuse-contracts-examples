@@ -2,6 +2,8 @@
 @superfuse-test/=test/
 @superfuse-deploy/=script/
 
+@forge-std-v1.9.1/=lib/forge-std-v1.9.1/src/
+
 @solady-v0.0.158/=lib/solady-v0.0.158/src/
 @solady-v0.0.245/=lib/solady-v0.0.245/src/
 

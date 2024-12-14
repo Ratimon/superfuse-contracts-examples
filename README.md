@@ -91,7 +91,6 @@ This command will:
 Adding `remappings.txt` with following line:
 
 ```txt
-
 @superfuse-core/=src/
 @superfuse-test/=test/
 @superfuse-deploy/=script/
