@@ -17,7 +17,7 @@ import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.s
 import {L2NativeSuperchainERC20} from "@superfuse-core/L2NativeSuperchainERC20.sol";
 
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
-import {DeployL2NativeSuperchainERC20Script} from "@script/DeployL2NativeSuperchainERC20Script.s.sol";
+import {DeployL2NativeSuperchainERC20Script} from "@script/000_DeployL2NativeSuperchainERC20Script.s.sol";
 
 
 // lib for native cross chain 
@@ -27,7 +27,7 @@ import {ERC20} from "@solady-v0.0.245/tokens/ERC20.sol";
 import {Ownable} from "@solady-v0.0.245/auth/Ownable.sol";
 
 /// @title SuperchainERC20Test
-/// @notice Contract for testing the SuperchainERC20 contract.
+/// @notice Contract for testing the ERC20 contract implementing SuperchainERC20.
 contract L2NativeSuperchainERC20Test is Test {
 
     string mnemonic = vm.envString("MNEMONIC");

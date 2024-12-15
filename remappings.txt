@@ -1,4 +1,5 @@
 @superfuse-core/=src/
+@main/=src/
 @superfuse-test/=test/
 @superfuse-deploy/=script/
 @script/=script/
