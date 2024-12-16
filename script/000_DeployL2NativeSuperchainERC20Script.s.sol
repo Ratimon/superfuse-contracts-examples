@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 import {Vm} from "@forge-std-v1.9.1/Vm.sol";
 
 import {DeployScript} from "@superfuse-deploy/deployer/DeployScript.sol";
-// import {DeployOptions, DeployerFunctions} from "@superfuse-deploy/deployer/DeployerFunctions.sol";
 
 import {DefaultDeployerFunction, DeployOptions} from "@superfuse-deploy/deployer/DefaultDeployerFunction.sol";
 
@@ -14,7 +13,6 @@ string constant Artifact_L2NativeSuperchainERC20 = "L2NativeSuperchainERC20.sol:
 
 
 contract DeployL2NativeSuperchainERC20Script is DeployScript {
-    // using DeployerFunctions for IDeployer ;
 
     L2NativeSuperchainERC20 token;
 
@@ -32,12 +30,7 @@ contract DeployL2NativeSuperchainERC20Script is DeployScript {
         DeployOptions memory options = DeployOptions({salt:_salt});
 
         bytes memory args = abi.encode(owner, name, symbol, decimals);
-        // bytes memory args = abi.encode(owner_, name_, symbol_, decimals_);
-
 
         return L2NativeSuperchainERC20(DefaultDeployerFunction.deploy(deployer, "L2NativeSuperchainERC20", Artifact_L2NativeSuperchainERC20, args, options));
-
-        // token = L2NativeSuperchainERC20(deployer.deploy_L2NativeSuperchainERC20("L2NativeSuperchainERC20", Artifact_L2NativeSuperchainERC20, owner, name, symbol, decimals, options));
-        // return token;
     }
 }

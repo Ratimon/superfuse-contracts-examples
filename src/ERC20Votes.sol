@@ -9,12 +9,15 @@ import {Nonces} from "@openzeppelin-v0.5.0.2/utils/Nonces.sol";
 
 contract MyERC20Token is ERC20, ERC20Permit, ERC20Votes {
 
+     // to do add crosschain mint
+
     // to do : modify code geneerator to compatible with superfuse
     // constructor() ERC20("MyToken", "MTK") ERC20Permit("MyToken") {}
     
     constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) ERC20Permit(name_) {
 
     }
+
 
 
 
