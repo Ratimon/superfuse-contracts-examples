@@ -13,7 +13,7 @@ import {ERC20Permit} from "@openzeppelin-v0.5.0.2/token/ERC20/extensions/ERC20Pe
 import {ERC20Votes} from "@openzeppelin-v0.5.0.2/token/ERC20/extensions/ERC20Votes.sol";
 import {Nonces} from "@openzeppelin-v0.5.0.2/utils/Nonces.sol";
 
-contract MyERC20Token is IERC7802, ERC20, ERC20Permit, ERC20Votes {
+contract MyERC20VotesToken is IERC7802, ERC20, ERC20Permit, ERC20Votes {
 
     // to do : modify code geneerator to compatible with superfuse
     // constructor() ERC20("MyToken", "MTK") ERC20Permit("MyToken") {}

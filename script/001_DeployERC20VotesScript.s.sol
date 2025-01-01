@@ -8,24 +8,24 @@ import {DeployScript} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {DefaultDeployerFunction, DeployOptions} from "@superfuse-deploy/deployer/DefaultDeployerFunction.sol";
 
 
-import {MyERC20Token} from "@superfuse-core/ERC20Votes.sol";
-string constant Artifact_MyERC20Token = "ERC20Votes.sol:MyERC20Token";
+import {MyERC20VotesToken} from "@superfuse-core/ERC20Votes.sol";
+string constant Artifact_MyERC20Token = "ERC20Votes.sol:MyERC20VotesToken";
 
 
-contract DeployERC20Script is DeployScript {
+contract DeployERC20VotesScript is DeployScript {
 
-    MyERC20Token token;
+    MyERC20VotesToken token;
 
     string name = "TestToken";
     string symbol = "TT";
 
-    function deploy() external returns (MyERC20Token) {
+    function deploy() external returns (MyERC20VotesToken) {
         bytes32 _salt = DeployScript.implSalt();
 
         DeployOptions memory options = DeployOptions({salt:_salt});
 
         bytes memory args = abi.encode(name, symbol);
 
-        return MyERC20Token(DefaultDeployerFunction.deploy(deployer, "MyERC20Token", Artifact_MyERC20Token, args, options));
+        return MyERC20VotesToken(DefaultDeployerFunction.deploy(deployer, "MyERC20VotesToken", Artifact_MyERC20Token, args, options));
     }
 }
