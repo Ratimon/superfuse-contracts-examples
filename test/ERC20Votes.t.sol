@@ -14,7 +14,7 @@ import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";
 import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.sol";
-import {MyERC20VotesToken} from "@superfuse-core/ERC20Votes.sol";
+import {MyERC20Votes} from "@superfuse-core/ERC20Votes.sol";
 
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {DeployERC20VotesScript} from "@script/001_DeployERC20VotesScript.s.sol";
@@ -37,7 +37,7 @@ contract ERC20VotesTest is Test {
     address internal constant MESSENGER = Predeploys.L2_TO_L2_CROSS_DOMAIN_MESSENGER;
 
     // SuperchainERC20 public superchainERC20;
-    MyERC20VotesToken public superchainERC20;
+    MyERC20Votes public superchainERC20;
 
     /// @notice Sets up the test suite.
     function setUp() public {
