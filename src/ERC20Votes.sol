@@ -10,7 +10,10 @@ import {Unauthorized} from "@superfuse-core//libraries/errors/CommonErrors.sol";
 
 /// @custom:security-contact Consult full code at https://github.com/OpenZeppelin/openzeppelin-contracts
 contract MyERC20Votes is ERC20, IERC7802, ERC20Permit {
-    constructor() ERC20("MyERC20Votes", "TT") ERC20Permit("MyERC20Votes") {}
+    constructor(string memory _name, string memory _symbol)
+        ERC20(_name, _symbol)
+        ERC20Permit(_name)
+    {}
 
     function crosschainMint(address _to, uint256 _amount) external {
         // Only the "SuperchainTokenBridge" has permissions to mint tokens during crosschain transfers.
@@ -34,7 +37,7 @@ contract MyERC20Votes is ERC20, IERC7802, ERC20Permit {
         emit CrosschainBurn(_from, _amount, msg.sender);
     }
 
-    function supportsInterface(bytes4 _interfaceId) public view returns (bool) {
+    function supportsInterface(bytes4 _interfaceId) public pure returns (bool) {
         return _interfaceId == type(IERC7802).interfaceId || _interfaceId == type(IERC20).interfaceId
             || _interfaceId == type(IERC165).interfaceId;
     }
