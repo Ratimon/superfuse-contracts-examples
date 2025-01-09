@@ -3,13 +3,13 @@ pragma solidity ^0.8.25;
 
 import {DefaultDeployerFunction, DeployOptions} from "@superfuse-deploy/deployer/DefaultDeployerFunction.sol";
 import {DeployScript} from "@superfuse-deploy/deployer/DeployScript.sol";
-import {MyERC20Votes} from "@main/ERC20Votes.sol";
+import {MyERC20Votes} from "@main/MyERC20Votes.sol";
 import {Vm} from "@forge-std-v1.9.1/Vm.sol";
 
-string constant Artifact_MyERC20Token = "ERC20Votes.sol:MyERC20Votes";
+string constant Artifact_MyERC20Token = "MyERC20Votes.sol:MyERC20Votes";
 
-/// @custom:security-contact Consult full internal deploy script at https://github.com/Ratimon/redprint-forge
-contract DeployERC20VotesScript is DeployScript {
+/// @custom:security-contact Consult full internal deploy script at https://github.com/Ratimon/superfuse-forge
+contract DeployMyERC20VotesScript is DeployScript {
     MyERC20Votes token;
     string name = "TestToken";
     string symbol = "TT";
