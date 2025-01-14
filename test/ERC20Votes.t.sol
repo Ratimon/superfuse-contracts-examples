@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import {DeployMyERC20VotesScript} from "@script/001_DeployMyERC20VotesScript.s.sol";
+import {DeployMyERC20VotesScript} from "@script/000_DeployMyERC20VotesScript.s.sol";
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";
