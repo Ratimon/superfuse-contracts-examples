@@ -1,20 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import {Predeploys} from "@superfuse-core/libraries/Predeploys.sol";
-import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 import {Ownable} from "@solady-v0.0.158/auth/Ownable.sol";
+import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 
+/// @custom:security-contact Consult full code at https://github.com/OpenZeppelin/openzeppelin-contracts
 contract L2NativeSuperchainERC20 is SuperchainERC20, Ownable {
     string private _name;
     string private _symbol;
     uint8 private immutable _decimals;
 
-    constructor(address owner_, string memory name_, string memory symbol_, uint8 decimals_) {
+    constructor(string memory name_, string memory symbol_, uint8 decimals_, address owner_)
+    {
         _name = name_;
         _symbol = symbol_;
         _decimals = decimals_;
-
         _initializeOwner(owner_);
     }
 
@@ -34,3 +34,4 @@ contract L2NativeSuperchainERC20 is SuperchainERC20, Ownable {
         _mint(to_, amount_);
     }
 }
+
