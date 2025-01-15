@@ -6,7 +6,6 @@ import {ERC20} from "@solady-v0.0.292/tokens/ERC20.sol";
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";
-import {IOwnable} from "@contracts-bedrock/universal/interfaces/IOwnable.sol";
 import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.sol";
 import {L2NativeSuperchainERC20} from "@main/L2NativeSuperchainERC20.sol";
 import {Ownable} from "@solady-v0.0.292/auth/Ownable.sol";
@@ -46,7 +45,6 @@ contract L2NativeSuperchainERC20Test is Test {
         assertEq(l2NativeSuperchainERC20.name(), "L2NativeToken");
         assertEq(l2NativeSuperchainERC20.symbol(), "NS");
         assertEq(l2NativeSuperchainERC20.decimals(), 18);
-        assertEq(l2NativeSuperchainERC20.owner(), owner);
     }
 
     function _mockAndExpect(address _receiver, bytes memory _calldata, bytes memory _returned)
@@ -144,28 +142,6 @@ contract L2NativeSuperchainERC20Test is Test {
         // Check the total supply and balance of '_from' after the burn were updated correctly
         assertEq(l2NativeSuperchainERC20.totalSupply(), _totalSupplyBefore - _amount);
         assertEq(l2NativeSuperchainERC20.balanceOf(_from), _fromBalanceBefore - _amount);
-    }
-
-    function testRenounceOwnership() public {
-        vm.expectEmit(true, true, true, true);
-        emit IOwnable.OwnershipTransferred(owner, address(0));
-
-        vm.prank(owner);
-        l2NativeSuperchainERC20.renounceOwnership();
-        assertEq(l2NativeSuperchainERC20.owner(), address(0));
-    }
-
-    function testFuzz_testTransferOwnership(address _newOwner) public {
-        vm.assume(_newOwner != owner);
-        vm.assume(_newOwner != ZERO_ADDRESS);
-
-        vm.expectEmit(true, true, true, true);
-        emit IOwnable.OwnershipTransferred(owner, _newOwner);
-
-        vm.prank(owner);
-        l2NativeSuperchainERC20.transferOwnership(_newOwner);
-
-        assertEq(l2NativeSuperchainERC20.owner(), _newOwner);
     }
 
     function testFuzz_mintTo_succeeds(address _to, uint256 _amount) public {

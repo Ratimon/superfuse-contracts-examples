@@ -4,7 +4,7 @@ pragma solidity 0.8.25;
 import { IERC7802, IERC165 } from "@superfuse-core/interfaces/L2/IERC7802.sol";
 import { ISemver } from "@superfuse-core/interfaces/universal/ISemver.sol";
 import { Predeploys } from "@superfuse-core/libraries/Predeploys.sol";
-import { ERC20 } from "@solady-v0.0.245/tokens/ERC20.sol";
+import { ERC20 } from "@solady-v0.0.292/tokens/ERC20.sol";
 import { IERC20 } from "@openzeppelin-v0.4.7.3/token/ERC20/IERC20.sol";
 import { Unauthorized } from "@superfuse-core/libraries/errors/CommonErrors.sol";
 
