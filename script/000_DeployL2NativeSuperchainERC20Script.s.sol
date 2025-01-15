@@ -23,7 +23,7 @@ contract DeployL2NativeSuperchainERC20Script is DeployScript {
         bytes32 _salt = DeployScript.implSalt();
 
         DeployOptions memory options = DeployOptions({salt:_salt});
-        bytes memory args = abi.encode(name, symbol, decimals, admin);
+        bytes memory args = abi.encode(admin, name, symbol, decimals);
         return L2NativeSuperchainERC20(DefaultDeployerFunction.deploy(deployer, "L2NativeSuperchainERC20", Artifact_L2NativeSuperchainERC20, args, options));
     }
 }

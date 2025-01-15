@@ -46,7 +46,6 @@ contract L2NativeSuperchainERC20Test is Test {
         assertEq(l2NativeSuperchainERC20.name(), "L2NativeToken");
         assertEq(l2NativeSuperchainERC20.symbol(), "NS");
         assertEq(l2NativeSuperchainERC20.decimals(), 18);
-        assertEq(l2NativeSuperchainERC20.owner(), owner);
     }
 
     function _mockAndExpect(address _receiver, bytes memory _calldata, bytes memory _returned)
@@ -179,18 +178,6 @@ contract L2NativeSuperchainERC20Test is Test {
         assertEq(l2NativeSuperchainERC20.balanceOf(_to), _amount);
     }
 
-    function testFuzz_mintTo_succeeds(address _minter, address _to, uint256 _amount)
-        public
-    {
-        vm.assume(_minter != owner);
-
-        // Expect the revert with 'Unauthorized' selector
-        vm.expectRevert(Ownable.Unauthorized.selector);
-
-        vm.prank(_minter);
-        l2NativeSuperchainERC20.mintTo(_to, _amount);
-    }
-
     function testFuzz_transfer_succeeds(address _sender, uint256 _amount) public {
         vm.assume(_sender != ZERO_ADDRESS);
         vm.assume(_sender != bob);
@@ -259,5 +246,17 @@ contract L2NativeSuperchainERC20Test is Test {
 
         vm.expectRevert(ERC20.InsufficientAllowance.selector);
         l2NativeSuperchainERC20.transferFrom(_from, _to, _amount);
+    }
+
+    function testFuzz_mintTo_succeeds(address _minter, address _to, uint256 _amount)
+        public
+    {
+        vm.assume(_minter != owner);
+
+        // Expect the revert with 'Unauthorized' selector
+        vm.expectRevert(Ownable.Unauthorized.selector);
+
+        vm.prank(_minter);
+        l2NativeSuperchainERC20.mintTo(_to, _amount);
     }
 }

@@ -17,14 +17,14 @@ contract DeployL2NativeSuperchainERC20RolesScript is DeployScript {
     string name = "L2NativeToken";
     string symbol = "NS";
     uint8 decimals = 18;
-    address admin = 0x0000000000000000000000000000000000000000;
-    address minter = 0x0000000000000000000000000000000000000000;
+    address defaultAdmin = 0x70997970C51812dc3A010C7d01b50e0d17dc79C8;
+    address minter = 0x70997970C51812dc3A010C7d01b50e0d17dc79C8;
 
     function deploy() external returns (L2NativeSuperchainERC20Roles) {
         bytes32 _salt = DeployScript.implSalt();
 
         DeployOptions memory options = DeployOptions({salt:_salt});
-        bytes memory args = abi.encode(name, symbol, decimals, admin, minter);
+        bytes memory args = abi.encode(defaultAdmin, minter, name, symbol, decimals);
         return L2NativeSuperchainERC20Roles(DefaultDeployerFunction.deploy(deployer, "L2NativeSuperchainERC20Roles", Artifact_L2NativeSuperchainERC20Roles, args, options));
     }
 }

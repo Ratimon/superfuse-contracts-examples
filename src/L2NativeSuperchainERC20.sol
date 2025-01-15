@@ -10,12 +10,12 @@ contract L2NativeSuperchainERC20 is SuperchainERC20, Ownable {
     string private _symbol;
     uint8 private immutable _decimals;
 
-    constructor(string memory name_, string memory symbol_, uint8 decimals_, address owner_)
+    constructor(address owner_, string memory name_, string memory symbol_, uint8 decimals_)
     {
+        _initializeOwner(owner_);
         _name = name_;
         _symbol = symbol_;
         _decimals = decimals_;
-        _initializeOwner(owner_);
     }
 
     function name() public view virtual override returns (string memory) {

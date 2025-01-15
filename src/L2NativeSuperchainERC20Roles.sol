@@ -6,23 +6,23 @@ import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 
 /// @custom:security-contact Consult full code at https://github.com/OpenZeppelin/openzeppelin-contracts
 contract L2NativeSuperchainERC20Roles is SuperchainERC20, EnumerableRoles {
+    uint256 public constant ADMIN_ROLE = 0;
+    uint256 public constant MINTER_ROLE = 1;
     string private _name;
     string private _symbol;
     uint8 private immutable _decimals;
-    uint256 public constant ADMIN_ROLE = 0;
-    uint256 public constant MINTER_ROLE = 1;
 
-    constructor(string memory name_, string memory symbol_, uint8 decimals_, address defaultAdmin_, address minter_)
+    constructor(address defaultAdmin_, address minter_, string memory name_, string memory symbol_, uint8 decimals_)
     {
-        _name = name_;
-        _symbol = symbol_;
-        _decimals = decimals_;
         if (defaultAdmin_ != address(0)) {
             _setRole(defaultAdmin_, ADMIN_ROLE, true);
         }
         if (minter_ != address(0)) {
           _setRole(minter_, MINTER_ROLE, true);
         }
+        _name = name_;
+        _symbol = symbol_;
+        _decimals = decimals_;
     }
 
     function name() public view virtual override returns (string memory) {
