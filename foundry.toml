@@ -8,12 +8,11 @@ script = "scripts"
 out = "out"
 libs = ["lib"]
 solc_version = '0.8.25'
-
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
-
 fs_permissions = [
     { access = 'read-write', path = './deployments/' },
     { access = 'read', path = './configs' },
     { access = 'read', path = './test' },
     { access = 'write', path = './deployment.json' },
 ]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
