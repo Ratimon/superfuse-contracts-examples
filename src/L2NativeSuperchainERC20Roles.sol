@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import {EnumerableRoles} from "@solady-v0.0.292/auth/EnumerableRoles.sol";
+import {EnumerableRoles} from "@solady-v0.1.8/auth/EnumerableRoles.sol";
 import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 
 /// @custom:security-contact Consult full code at https://github.com/OpenZeppelin/openzeppelin-contracts

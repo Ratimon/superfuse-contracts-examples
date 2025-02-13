@@ -2,8 +2,8 @@
 pragma solidity ^0.8.25;
 
 import {DeployL2NativeSuperchainERC20RolesScript} from "@script/001_DeployL2NativeSuperchainERC20RolesScript.s.sol";
-import {ERC20} from "@solady-v0.0.292/tokens/ERC20.sol";
-import {EnumerableRoles} from "@solady-v0.0.292/auth/EnumerableRoles.sol";
+import {ERC20} from "@solady-v0.1.8/tokens/ERC20.sol";
+import {EnumerableRoles} from "@solady-v0.1.8/auth/EnumerableRoles.sol";
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";

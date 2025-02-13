@@ -2,13 +2,13 @@
 pragma solidity ^0.8.25;
 
 import {DeployL2NativeSuperchainERC20Script} from "@script/000_DeployL2NativeSuperchainERC20Script.s.sol";
-import {ERC20} from "@solady-v0.0.292/tokens/ERC20.sol";
+import {ERC20} from "@solady-v0.1.8/tokens/ERC20.sol";
 import {IDeployer, getDeployer} from "@superfuse-deploy/deployer/DeployScript.sol";
 import {IERC20} from "@openzeppelin-v0.5.0.2/token/ERC20/IERC20.sol";
 import {IERC7802} from "@superfuse-core/interfaces/L2/IERC7802.sol";
 import {ISuperchainERC20} from "@superfuse-core/interfaces/L2/ISuperchainERC20.sol";
 import {L2NativeSuperchainERC20} from "@main/L2NativeSuperchainERC20.sol";
-import {Ownable} from "@solady-v0.0.292/auth/Ownable.sol";
+import {Ownable} from "@solady-v0.1.8/auth/Ownable.sol";
 import {Predeploys} from "@superfuse-core/libraries/Predeploys.sol";
 import {SuperchainERC20} from "@superfuse-core/L2/SuperchainERC20.sol";
 import {Test} from "@forge-std-v1.9.1/Test.sol";

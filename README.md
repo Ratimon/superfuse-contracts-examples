@@ -59,7 +59,7 @@ cd superfuse-contracts-examples
 3. Select the correct node verison:
 
 ```bash
-nvm use v20.13.1
+nvm use v22.14.0
 ```
 
 4. Install the dependencies:
